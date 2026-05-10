@@ -1,12 +1,10 @@
-```tsx id="c7v9qx"
 'use client';
 
 import React from 'react';
-import AdsenseAd from '@/components/AdsenseAd';
+import Script from 'next/script';
 import { useAtlasStore } from '@/store/useAtlasStore';
 import { motion, AnimatePresence } from 'framer-motion';
-
-import {
+import { 
   Sparkles,
   Cpu,
   HelpCircle,
@@ -35,6 +33,14 @@ export default function InfoPanel() {
 
   return (
     <aside className="w-[90vw] sm:w-[450px] h-full border-l border-white/5 bg-slate-950/95 lg:bg-slate-950/60 backdrop-blur-2xl flex flex-col z-40 overflow-hidden shadow-2xl lg:shadow-none">
+
+      {/* Adsense Script */}
+      <Script
+        async
+        strategy="afterInteractive"
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5142374670189212"
+        crossOrigin="anonymous"
+      />
 
       <div className="flex-1 p-8 space-y-10 overflow-y-auto custom-scrollbar scroll-smooth">
 
@@ -245,10 +251,26 @@ export default function InfoPanel() {
 
       {/* Adsense Ad */}
       <div className="p-4 border-t border-white/5 bg-slate-950/80">
-        <AdsenseAd />
+
+        <ins
+          className="adsbygoogle"
+          style={{ display: "block" }}
+          data-ad-client="ca-pub-5142374670189212"
+          data-ad-slot="8558383579"
+          data-ad-format="auto"
+          data-full-width-responsive="true"
+        />
+
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (adsbygoogle = window.adsbygoogle || []).push({});
+            `,
+          }}
+        />
+
       </div>
 
     </aside>
   );
 }
-```
