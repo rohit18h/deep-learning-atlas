@@ -1,9 +1,9 @@
+```tsx id="c7v9qx"
 'use client';
 
 import React from 'react';
-import { useAtlasStore } from '@/store/useAtlasStore';
 import AdsenseAd from '@/components/AdsenseAd';
-
+import { useAtlasStore } from '@/store/useAtlasStore';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import {
@@ -14,7 +14,10 @@ import {
   XCircle
 } from 'lucide-react';
 
-/* YOUR MODULE_DATA STAYS SAME */
+/*
+KEEP YOUR FULL MODULE_DATA OBJECT HERE
+DO NOT DELETE IT
+*/
 
 export default function InfoPanel() {
   const { activeModule } = useAtlasStore();
@@ -62,13 +65,17 @@ export default function InfoPanel() {
 
             {/* Definition */}
             <section className="space-y-3">
+
               <div className="glass-panel p-5 bg-blue-500/5 border-blue-500/10">
+
                 <p className="text-[15px] text-slate-200 leading-relaxed font-medium">
                   {data.definition}
                 </p>
+
               </div>
 
               <div className="px-5 py-3 border-l-2 border-slate-800">
+
                 <span className="text-[10px] font-bold text-slate-500 uppercase block mb-1">
                   Why it's needed:
                 </span>
@@ -76,17 +83,22 @@ export default function InfoPanel() {
                 <p className="text-xs text-slate-400 italic">
                   {data.whyNeeded}
                 </p>
+
               </div>
+
             </section>
 
             {/* Easy Explanation */}
             <section className="space-y-4">
+
               <div className="flex items-center gap-2 text-amber-400">
+
                 <Sparkles size={16} />
 
                 <span className="text-[11px] font-bold uppercase tracking-[0.2em]">
                   Easy Explanation
                 </span>
+
               </div>
 
               <div className="glass-panel p-6 bg-amber-400/5 border-amber-400/10 rounded-2xl relative overflow-hidden group">
@@ -99,23 +111,28 @@ export default function InfoPanel() {
                 <p className="text-sm text-slate-300 leading-relaxed relative z-10 italic">
                   "{data.easyExplanation}"
                 </p>
+
               </div>
+
             </section>
 
-            {/* How it Works */}
+            {/* How It Works */}
             <section className="space-y-4">
 
               <div className="flex items-center gap-2 text-blue-400">
+
                 <Cpu size={16} />
 
                 <span className="text-[11px] font-bold uppercase tracking-[0.2em]">
                   How it Works
                 </span>
+
               </div>
 
               <div className="space-y-3">
 
                 {data.howItWorks?.map((step: string, i: number) => (
+
                   <div
                     key={i}
                     className="flex gap-4 items-start group"
@@ -134,38 +151,49 @@ export default function InfoPanel() {
                     </p>
 
                   </div>
+
                 ))}
 
               </div>
+
             </section>
 
-            {/* Pros Cons */}
+            {/* Pros / Cons */}
             {data.prosCons && (
+
               <section className="grid grid-cols-2 gap-4 pt-4">
 
                 <div className="space-y-3">
 
                   <div className="flex items-center gap-2 text-emerald-500">
+
                     <CheckCircle2 size={14} />
 
                     <span className="text-[10px] font-bold uppercase">
                       Advantages
                     </span>
+
                   </div>
 
                   <ul className="space-y-1">
+
                     {data.prosCons.pros.map((p: string, i: number) => (
+
                       <li
                         key={i}
                         className="text-[10px] text-slate-500 flex gap-2"
                       >
+
                         <span className="text-emerald-500 opacity-50">
                           •
                         </span>
 
                         {p}
+
                       </li>
+
                     ))}
+
                   </ul>
 
                 </div>
@@ -173,34 +201,44 @@ export default function InfoPanel() {
                 <div className="space-y-3">
 
                   <div className="flex items-center gap-2 text-rose-500">
+
                     <XCircle size={14} />
 
                     <span className="text-[10px] font-bold uppercase">
                       Disadvantages
                     </span>
+
                   </div>
 
                   <ul className="space-y-1">
+
                     {data.prosCons.cons.map((c: string, i: number) => (
+
                       <li
                         key={i}
                         className="text-[10px] text-slate-500 flex gap-2"
                       >
+
                         <span className="text-rose-500 opacity-50">
                           •
                         </span>
 
                         {c}
+
                       </li>
+
                     ))}
+
                   </ul>
 
                 </div>
 
               </section>
+
             )}
 
           </motion.div>
+
         </AnimatePresence>
 
       </div>
@@ -213,3 +251,4 @@ export default function InfoPanel() {
     </aside>
   );
 }
+```
